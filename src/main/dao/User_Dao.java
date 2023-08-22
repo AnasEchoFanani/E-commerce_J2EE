@@ -13,8 +13,8 @@ import java.util.List;
 public class User_Dao {
     private DatabaseConnectionManager connectionManager;
 
-    public User_Dao(DatabaseConnectionManager connectionManager) {
-        this.connectionManager = connectionManager;
+    public User_Dao() {
+        this.connectionManager = new DatabaseConnectionManager();
     }
 
     public Users getUserById(int userId) {
@@ -74,7 +74,7 @@ public class User_Dao {
 
 
 
-    private Users updateUser(Users users) throws SQLException {
+    public Users updateUser(Users users) throws SQLException {
         String  query = "UPDATE userss set nom=? , prenom=? , email=? , age=? , Id_Role=?  WHERE id = ?";
         try(Connection connection = connectionManager.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
