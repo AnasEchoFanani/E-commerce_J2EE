@@ -6,12 +6,14 @@ public class Produit {
     private int qnt;
     private Double prix;
     private String image;
-    public Produit(int Id,String nomProduit, int qnt, Double prix, String image){
+    private  int idCategor;
+    public Produit(int Id,String nomProduit, int qnt, Double prix, String image , int idCategor){
         this.Id = Id;
         this.nomProduit = nomProduit;
         this.prix = prix;
         this.qnt = qnt;
         this.image = image;
+        this.idCategor=idCategor;
     }
 
     public int getId() {
@@ -52,5 +54,13 @@ public class Produit {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getidCategor() {
+        return idCategor;
+    }
+
+    public void setidCategor(int iidCategord) {
+        idCategor = idCategor;
     }
 }
