@@ -1,7 +1,11 @@
 package main.dao;
 
 import main.entity.Users;
-
+import java.sql.PreparedStatement;
+import java.util.List;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,18 +37,19 @@ public class User_Dao {
 
     public List<Users> selectionnerTousLesUsers() {
         List<Users> usersList = new ArrayList<>();
-        String query = "SELECT * FROM users";
-        try (PreparedStatement preparedStatement = connectionManager.prepareStatement(query);
+        String query = "SELECT * FROM userss";
+        Connection connection = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String nom = resultSet.getString("nom");
                 String prenom = resultSet.getString("prenom");
                 String email = resultSet.getString("email");
-                int age = resultSet.getint("age");
-                int getId_Role = resultSet.getint("getId_Role");
+                int age = resultSet.getInt("age");
+                int getId_Role = resultSet.getInt("getId_Role");
 
-                Etudiant users = new Users(id, nom, prenom,email,age, getId_Role);
+                Users users = new Users(id, nom, prenom,email,age, getId_Role);
                 usersList.add(users);
             }
         } catch (SQLException e) {
@@ -70,14 +75,14 @@ public class User_Dao {
 
 
     private Users updateUser(Users users) throws SQLException {
-        String  query = "UPDATE users set nom=? , prenom=? , email=? , age=? , Id_Role=?  WHERE id = ?";
+        String  query = "UPDATE userss set nom=? , prenom=? , email=? , age=? , Id_Role=?  WHERE id = ?";
         try(Connection connection = connectionManager.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, etudiant.getNom());
-            preparedStatement.setString(2, etudiant.getPrenom());
-            preparedStatement.setString(3, etudiant.getEmail());
-            preparedStatement.setString(4, etudiant.getId_Role());
-            preparedStatement.setString(5, etudiant.getId());
+            preparedStatement.setString(1, users.getNom());
+            preparedStatement.setString(2, users.getPrenom());
+            preparedStatement.setString(3, users.getEmail());
+            preparedStatement.setString(4, users.getId_Role());
+            preparedStatement.setString(5, users.getId());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         }
@@ -86,7 +91,8 @@ public class User_Dao {
 
 
     public void supprimerUsers(int id) {
-        String query = "DELETE FROM users WHERE id = ?";
+        String query = "DELETE FROM userss WHERE id = ?";
+        Connection connection = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
