@@ -37,6 +37,6 @@ public class User_Dao {
         int role = resultSet.getInt("idRoles");
 
         return new Users(id,lastName,firstName,email,age,role);
-    } 
+    }
 
 }
