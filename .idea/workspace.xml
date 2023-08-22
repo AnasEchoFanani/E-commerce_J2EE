@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="177a8b7f-e226-472f-89c5-8f38f0309fea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/DatabaseConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/DatabaseConnectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dao/User_Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/User_Dao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +37,9 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2UCav7TqGxKU5bboo4JDurt1ie8" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,7 +52,7 @@
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/DELL/Documents/GitHub/E-commerce_J2EE/src/main/webapp",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable"
   }
@@ -67,7 +70,7 @@
       <option name="tomcatInfo">
         <TomcatInfo>
           <option name="name" value="Apache Tomcat/8.5.92" />
-          <option name="path" value="$USER_HOME$/Desktop/apache-tomcat-8.5.92/apache-tomcat-8.5.92" />
+          <option name="path" value="$PROJECT_DIR$/../../apache-tomcat-8.5.92/apache-tomcat-8.5.92" />
           <option name="version" value="8.5.92.0" />
         </TomcatInfo>
       </option>

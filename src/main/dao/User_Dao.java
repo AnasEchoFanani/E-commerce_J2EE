@@ -3,6 +3,8 @@ package main.dao;
 import main.entity.Users;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User_Dao {
     private DatabaseConnectionManager connectionManager;
@@ -32,7 +34,7 @@ public class User_Dao {
     public List<Users> selectionnerTousLesUsers() {
         List<Users> usersList = new ArrayList<>();
         String query = "SELECT * FROM users";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+        try (PreparedStatement preparedStatement = connectionManager.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
