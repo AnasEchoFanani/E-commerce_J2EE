@@ -20,7 +20,7 @@ public class User_Dao {
 
     public Users getUserById(int userId) {
         Users user = null;
-        try (Connection connection = connectionManager.getConnection()) {
+        try (java.sql.Connection connection =  connectionManager.getConnection()) {
             String query = "SELECT * FROM userss WHERE id=?";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, userId);
@@ -39,7 +39,7 @@ public class User_Dao {
 
     public void ajouterUseres(Users users) {
         String query = "INSERT INTO userss (nom, prenom, email, age ,Id_Role ) VALUES (?, ?, ?, ?, ?)";
-        Connection connection=null;
+        java.sql.Connection connection=null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, users.getNom());
             preparedStatement.setString(2, users.getPrenom());
@@ -58,10 +58,31 @@ public class User_Dao {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public List<Users> selectionnerTousLesUsers() {
         List<Users> usersList = new ArrayList<>();
         String query = "SELECT * FROM userss";
-        Connection connection = null;
+        java.sql.Connection connection = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
@@ -99,7 +120,7 @@ public class User_Dao {
 
     public Users updateUser(Users users) throws SQLException {
         String  query = "UPDATE userss set nom=? , prenom=? , email=? , age=? , Id_Role=?  WHERE id = ?";
-        try(Connection connection = connectionManager.getConnection()){
+        try(java.sql.Connection connection = (java.sql.Connection) connectionManager.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, users.getNom());
             preparedStatement.setString(2, users.getPrenom());
@@ -115,7 +136,7 @@ public class User_Dao {
 
     public void supprimerUsers(int id) {
         String query = "DELETE FROM userss WHERE id = ?";
-        Connection connection = null;
+        java.sql.Connection connection = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
