@@ -16,8 +16,8 @@ public class Users {
         this.age = age;
         Id_Role = idRole;
     }
-    
-    public int getId() {
+
+    public String getId() {
         return Id;
     }
 
@@ -57,7 +57,7 @@ public class Users {
         this.age = age;
     }
 
-    public int getId_Role() {
+    public String getId_Role() {
         return Id_Role;
     }
 
