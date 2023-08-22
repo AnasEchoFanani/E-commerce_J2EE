@@ -3,10 +3,12 @@ package main.controller;
 import main.dao.User_Dao;
 import main.entity.Users;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet("/user")
@@ -17,7 +19,7 @@ public class Controller_User extends HttpServlet{
         userDao = new User_Dao();
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response){
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Users user = userDao.getUserById(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("user",user);
         request.getRequestDispatcher("userDashboard.jsp").forward(request,response);
