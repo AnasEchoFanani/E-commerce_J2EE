@@ -7,9 +7,9 @@
     <list default="true" id="177a8b7f-e226-472f-89c5-8f38f0309fea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/Product_Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Product_Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/User_Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/User_Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entity/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controller/Controller_User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/Controller_User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/Admin_Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Admin_Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/DatabaseConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/DatabaseConnectionManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,19 +61,22 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="com.poratu.idea.plugins.tomcat">
+    <configuration name="Unnamed" type="com.poratu.idea.plugins.tomcat" nameIsGenerated="true">
       <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
       <predefined_log_file enabled="true" id="Tomcat Access Log" />
       <predefined_log_file id="Tomcat Catalina Log" />
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
       <option name="contextPath" value="/E-Commerce" />
-      <option name="docBase" value="C:\Users\DELL\Documents\GitHub\E-commerce_J2EE\src\main\webapp" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
       <option name="extraClassPath" value="" />
       <option name="tomcatInfo">
         <TomcatInfo>
           <option name="name" value="Apache Tomcat/8.5.92" />
-          <option name="path" value="$PROJECT_DIR$/../../apache-tomcat-8.5.92/apache-tomcat-8.5.92" />
+          <option name="path" value="$USER_HOME$/Desktop/apache-tomcat-8.5.92/apache-tomcat-8.5.92" />
           <option name="version" value="8.5.92.0" />
         </TomcatInfo>
       </option>
