@@ -1,5 +1,6 @@
 package main.dao;
 
+import main.entity.Produit;
 import main.entity.Users;
 import java.sql.PreparedStatement;
 import java.util.List;
@@ -33,6 +34,28 @@ public class User_Dao {
         }
         return user;
     }
+
+
+
+    public void ajouterUseres(Users users) {
+        String query = "INSERT INTO userss (nom, prenom, email, age ,Id_Role ) VALUES (?, ?, ?, ?, ?)";
+        Connection connection=null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, users.getNom());
+            preparedStatement.setString(2, users.getPrenom());
+            preparedStatement.setString(3, users.getEmail());
+            preparedStatement.setInt(4, users.getAge());
+            preparedStatement.setInt(5, users.getId_Role());
+            System.out.println(preparedStatement);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
 
 
     public List<Users> selectionnerTousLesUsers() {
@@ -81,8 +104,8 @@ public class User_Dao {
             preparedStatement.setString(1, users.getNom());
             preparedStatement.setString(2, users.getPrenom());
             preparedStatement.setString(3, users.getEmail());
-            preparedStatement.setString(4, users.getId_Role());
-            preparedStatement.setString(5, users.getId());
+            preparedStatement.setInt(4, users.getId_Role());
+            preparedStatement.setInt(5, users.getId());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         }

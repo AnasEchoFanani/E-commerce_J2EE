@@ -70,6 +70,66 @@ public class Product_Dao {
 
 
     }
+
+
+    public void ajouterEtudiant(Produit produit) {
+        String query = "INSERT INTO produit (nomProduit, prix, qnt, image ,idCategor ) VALUES (?, ?, ?, ?, ?)";
+        Connection connection=null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, produit.getNomProduit());
+            preparedStatement.setInt(2, produit.getQnt());
+            preparedStatement.setDouble(3, produit.getPrix());
+            preparedStatement.setString(4, produit.getImage());
+            preparedStatement.setInt(5, produit.getidCategor());
+            System.out.println(preparedStatement);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+    public void supprimerProduit(int id) {
+        String query = "DELETE FROM produit WHERE id = ?";
+        Connection connection=null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+    public void modifierEtudiant(Produit produitModifie) {
+        String query = "UPDATE produit SET nomProduit = ?, prix = ?, qnt = ?, idCategor = ? WHERE id = ?";
+        Connection connection=null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, produitModifie.getNomProduit());
+            preparedStatement.setInt(2, produitModifie.getQnt());
+            preparedStatement.setDouble(3, produitModifie.getPrix());
+            preparedStatement.setString(4, produitModifie.getImage());
+            preparedStatement.setInt(5, produitModifie.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 }
 
 
