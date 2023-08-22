@@ -37,9 +37,12 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+<<<<<<< Updated upstream
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+=======
+>>>>>>> Stashed changes
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -58,9 +61,15 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/DELL/Documents/GitHub/E-commerce_J2EE/src/main/webapp&quot;,
+<<<<<<< Updated upstream
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+=======
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+>>>>>>> Stashed changes
     &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;
   }
 }</component>
@@ -72,10 +81,14 @@
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
       <option name="contextPath" value="/E-Commerce" />
+<<<<<<< Updated upstream
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
       <option name="envOptions">
         <map />
       </option>
+=======
+      <option name="docBase" value="C:\Users\DELL\Documents\GitHub\E-commerce_J2EE\src\main\webapp" />
+>>>>>>> Stashed changes
       <option name="extraClassPath" value="" />
       <option name="tomcatInfo">
         <TomcatInfo>
