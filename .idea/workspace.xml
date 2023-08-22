@@ -8,8 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controller/Controller_User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/Controller_User.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/dao/Admin_Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Admin_Dao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dao/DatabaseConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/DatabaseConnectionManager.java" afterDir="false" />
+=======
+>>>>>>> 6cac0571b3b1d889eb8f57e506644a603aa81adf
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -76,7 +80,11 @@
       <option name="tomcatInfo">
         <TomcatInfo>
           <option name="name" value="Apache Tomcat/8.5.92" />
+<<<<<<< HEAD
           <option name="path" value="$USER_HOME$/Desktop/apache-tomcat-8.5.92/apache-tomcat-8.5.92" />
+=======
+          <option name="path" value="$PROJECT_DIR$/../../apache-tomcat-8.5.92" />
+>>>>>>> 6cac0571b3b1d889eb8f57e506644a603aa81adf
           <option name="version" value="8.5.92.0" />
         </TomcatInfo>
       </option>
