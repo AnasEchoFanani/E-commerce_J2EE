@@ -6760,13 +6760,13 @@ public class ConnectionRegressionTest extends BaseTestCase {
                     try {
                         testStep = "create user";
                         testBug20825727CreateUser(dbUrl, "testBug20825727", simplePwd, pluginName, pwdHashingMethod);
-                        testStep = "login with simple password";
+                        testStep = "main.webapp.login with simple password";
                         testBug20825727TestLogin(dbUrl, testConn.getPropertySet().getStringProperty(PropertyKey.characterEncoding).getValue(), sslEnabled,
                                 rsaEnabled, "testBug20825727", simplePwd, encoding, pluginName);
 
                         testStep = "change password";
                         testBug20825727ChangePassword(dbUrl, "testBug20825727", complexPwd, pluginName, pwdHashingMethod);
-                        testStep = "login with complex password";
+                        testStep = "main.webapp.login with complex password";
                         testBug20825727TestLogin(dbUrl, testConn.getPropertySet().getStringProperty(PropertyKey.characterEncoding).getValue(), sslEnabled,
                                 rsaEnabled, "testBug20825727", complexPwd, encoding, pluginName);
                     } catch (SQLException e) {
@@ -11059,7 +11059,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
         final Properties props = getHostFreePropertiesFromTestsuiteUrl();
         props.setProperty(PropertyKey.sslMode.getKeyName(), SslMode.DISABLED.toString());
 
-        DriverManager.setLoginTimeout(0); // Make sure the login timeout is 0.
+        DriverManager.setLoginTimeout(0); // Make sure the main.webapp.login timeout is 0.
 
         ExecutorService executor = Executors.newFixedThreadPool(100);
         List<Future<Exception>> futures = new ArrayList<>();
