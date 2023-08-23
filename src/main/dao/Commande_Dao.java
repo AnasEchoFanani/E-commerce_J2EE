@@ -84,7 +84,7 @@ public class Commande_Dao {
             preparedStatement.setInt(1, commande.getId_User());
             preparedStatement.setInt(2, commande.getId_Product());
             preparedStatement.setDate(3, commande.getDateC());
-
+            System.out.println("sssssssssssss");
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
