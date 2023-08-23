@@ -12,7 +12,6 @@ import java.util.List;
 public class Product_Dao {
 
     private DatabaseConnectionManager connectionManager;
-
     public void Produit_Dao(DatabaseConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }
@@ -26,7 +25,7 @@ public class Product_Dao {
         double prix = resultSet.getDouble("prix");
         String image = resultSet.getString("image");
 
-        return new Produit(id, nomProduit, qnt, prix, image, idCategor);
+        return new Produit(nomProduit, qnt, prix, image, idCategor);
     }
 
 
@@ -61,7 +60,7 @@ public class Product_Dao {
                 double prix = resultSet.getDouble("prix");
                 String image = resultSet.getString("image");
 
-                Produit produit = new Produit(id, nomProduit, qnt, prix, image, idCategor);
+                Produit produit = new Produit(nomProduit, qnt, prix, image, idCategor);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -72,7 +71,7 @@ public class Product_Dao {
     }
 
 
-    public void ajouterEtudiant(Produit produit) {
+    public void ajouterProduit(Produit produit) {
         String query = "INSERT INTO produit (nomProduit, prix, qnt, image ,idCategor ) VALUES (?, ?, ?, ?, ?)";
         Connection connection=null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -106,7 +105,7 @@ public class Product_Dao {
 
 
 
-    public void modifierEtudiant(Produit produitModifie) {
+    public void modifierProduit(Produit produitModifie) {
         String query = "UPDATE produit SET nomProduit = ?, prix = ?, qnt = ?, idCategor = ? WHERE id = ?";
         Connection connection=null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
