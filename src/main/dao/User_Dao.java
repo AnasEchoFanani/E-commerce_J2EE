@@ -57,28 +57,6 @@ public class User_Dao {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public List<Users> selectionnerTousLesUsers() {
         List<Users> usersList = new ArrayList<>();
         String query = "SELECT * FROM userss";

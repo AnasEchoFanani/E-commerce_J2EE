@@ -62,6 +62,9 @@ public class Product_Dao {
                 String image = resultSet.getString("image");
 
                 Produit produit = new Produit(id, nomProduit, qnt, prix, image, idCategor);
+                ProduitList.add(produit);
+
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -72,7 +75,7 @@ public class Product_Dao {
     }
 
 
-    public void ajouterEtudiant(Produit produit) {
+    public void ajouterProduit(Produit produit) {
         String query = "INSERT INTO produit (nomProduit, prix, qnt, image ,idCategor ) VALUES (?, ?, ?, ?, ?)";
         Connection connection=null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -106,7 +109,7 @@ public class Product_Dao {
 
 
 
-    public void modifierEtudiant(Produit produitModifie) {
+    public void modifierProduit(Produit produitModifie) {
         String query = "UPDATE produit SET nomProduit = ?, prix = ?, qnt = ?, idCategor = ? WHERE id = ?";
         Connection connection=null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
