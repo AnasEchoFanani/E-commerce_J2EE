@@ -22,7 +22,7 @@ public class Controller_User extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Users user = userDao.getUserById(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("user",user);
-        request.getRequestDispatcher("userDashboard.jsp").forward(request,response);
+        request.getRequestDispatcher("sign.jsp").forward(request,response);
     }
 
     public void doPost(HttpServletResponse response,HttpServletRequest request) throws SQLException {
@@ -37,9 +37,11 @@ public class Controller_User extends HttpServlet{
                 Users users = new Users(id_user,nom,prenom,email,age,2);
 
                 userDao.updateUser(users);
+                break;
             case "delete" :
                 int id_delete = Integer.parseInt(request.getParameter("id"));
                 userDao.supprimerUsers(id_delete);
+                break;
         }
     }
 }
