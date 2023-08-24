@@ -36,7 +36,7 @@
 
 
                 <div class="card-body">
-                    <form action="<%= request.getContextPath() %>/add" method="post">
+                    <form action="<%= request.getContextPath() %>/produit" method="post">
                         <div class="form-row m-b-55">
                             <div class="name">Name</div>
                             <div class="value">
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <input name="action" value="add" hidden>
                         <div class="form-row m-b-55">
                          <div class="name">Quantity</div>
                          <div class="value">
@@ -97,7 +97,7 @@
                                                         <div class="row row-refine">
                                                             <div class="col-9">
                                                                 <div class="input-group-desc">
-                                                                    <input class="input--style-5" type="file" name="image">
+                                                                    <input class="input--style-5" type="file" name="imageFile">
                                                                     <label class="label--desc">product image</label>
                                                                 </div>
                                                             </div>
