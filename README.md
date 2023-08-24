@@ -45,13 +45,13 @@ Chaque article est caractérisé par :
 
 Pour exécuter ce projet, vous aurez besoin de :
 - J2EE installé sur votre machine.
-- Une base de données [nom-de-la-base-de-données] configurée avec les informations nécessaires.
+- Une base de données configurée avec les informations nécessaires.
 
 ## Installation et Exécution
 
 - Clonez ce repository.
 - Configurez la base de données avec les informations nécessaires.
-- Lancez l'application avec [instructions-pour-lancer].
+- Lancez l'application.
 
 
 ## 🚀 About Me
@@ -61,7 +61,6 @@ I'm a full stack developer...
 ## Authors
 
 - [@Anas Fanani](https://github.com/KFIVE05)
-- [@Sef](https://github.com/3xdap)
 - [@IMADJMS](https://github.com/IMADJMS)
 - [@Xde9adx](https://github.com/xde9adx)
 
