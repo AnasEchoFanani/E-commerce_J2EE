@@ -36,14 +36,14 @@
 
 
                 <div class="card-body">
-                    <form method="POST">
+                    <form action="<%= request.getContextPath() %>/add" method="post">
                         <div class="form-row m-b-55">
                             <div class="name">Name</div>
                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="first_name">
+                                            <input class="input--style-5" type="text" name="nomProduit">
                                             <label class="label--desc">first name</label>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                            <div class="row row-refine">
                          <div class="col-9">
                           <div class="input-group-desc">
-                          <input class="input--style-5" type="number" name="quantity">
+                          <input class="input--style-5" type="number" name="qnt">
                           <label class="label--desc">product price</label>
                                       </div>
                                    </div>
@@ -67,7 +67,7 @@
 
 <div class="form-row m-b-55">
 <label for="category" class="name">Choose a category:</label>
-<select name="category" id="category">
+<select name="idCategor" class="form-select" id="category">
   <option value="1">1</option>
   <option value="2">2</option>
   <option value="3">3</option>
@@ -82,13 +82,28 @@
                                 <div class="row row-refine">
                                     <div class="col-9">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="number" name="price">
+                                            <input class="input--style-5" type="number" name="prix">
                                             <label class="label--desc">product price</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="form-row m-b-55">
+                                                    <div class="name">Img</div>
+                                                    <div class="value">
+                                                        <div class="row row-refine">
+                                                            <div class="col-9">
+                                                                <div class="input-group-desc">
+                                                                    <input class="input--style-5" type="file" name="image">
+                                                                    <label class="label--desc">product image</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
 
 
