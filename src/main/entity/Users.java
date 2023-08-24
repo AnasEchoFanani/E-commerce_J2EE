@@ -6,15 +6,26 @@ public class Users {
     private String prenom;
     private String email;
     private int age;
+    private String password;
     private int Id_Role;
 
-    public Users(int id, String nom, String prenom, String email, int age, int idRole) {
+    public Users(int id, String nom, String prenom, String email, int age, int id_Role) {
         Id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.age = age;
-        Id_Role = idRole;
+        Id_Role = id_Role;
+    }
+
+    public Users(int id, String nom, String prenom, String email, int age, String password, int id_Role) {
+        Id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.age = age;
+        this.password = password;
+        Id_Role = id_Role;
     }
 
     public int getId() {
@@ -59,6 +70,14 @@ public class Users {
 
     public int getId_Role() {
         return Id_Role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setId_Role(int id_Role) {

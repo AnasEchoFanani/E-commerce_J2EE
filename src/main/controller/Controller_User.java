@@ -1,5 +1,6 @@
 package main.controller;
 
+import main.dao.DatabaseConnectionManager;
 import main.dao.User_Dao;
 import main.entity.Users;
 
@@ -15,8 +16,9 @@ import java.sql.SQLException;
 public class Controller_User extends HttpServlet{
     User_Dao userDao;
 
-    public Controller_User(){
-        userDao = new User_Dao();
+    public Controller_User() throws ClassNotFoundException {
+        DatabaseConnectionManager connectionManager = new DatabaseConnectionManager();
+        userDao = new User_Dao(connectionManager);
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +36,8 @@ public class Controller_User extends HttpServlet{
                 String prenom = request.getParameter("prenom");
                 String email = request.getParameter("email");
                 int age = Integer.parseInt(request.getParameter("age"));
-                Users users = new Users(id_user,nom,prenom,email,age,2);
+                String password = request.getParameter("password");
+                Users users = new Users(id_user,nom,prenom,email,age,password,2);
 
                 userDao.updateUser(users);
                 break;

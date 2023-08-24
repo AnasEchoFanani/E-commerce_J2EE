@@ -13,11 +13,10 @@ import java.util.List;
 
 public class User_Dao {
     private DatabaseConnectionManager connectionManager;
-
-    public User_Dao() {
-        this.connectionManager = new DatabaseConnectionManager();
+    public User_Dao(DatabaseConnectionManager connectionManager) throws ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        this.connectionManager = connectionManager;
     }
-
     public Users getUserById(int userId) {
         Users user = null;
         try (java.sql.Connection connection =  connectionManager.getConnection()) {
@@ -39,8 +38,8 @@ public class User_Dao {
 
     public void ajouterUseres(Users users) {
         String query = "INSERT INTO userss (nom, prenom, email, age ,Id_Role ) VALUES (?, ?, ?, ?, ?)";
-        java.sql.Connection connection=null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionManager.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, users.getNom());
             preparedStatement.setString(2, users.getPrenom());
             preparedStatement.setString(3, users.getEmail());
@@ -54,14 +53,11 @@ public class User_Dao {
     }
 
 
-
-
-
     public List<Users> selectionnerTousLesUsers() {
         List<Users> usersList = new ArrayList<>();
         String query = "SELECT * FROM userss";
-        java.sql.Connection connection = null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
@@ -80,7 +76,25 @@ public class User_Dao {
         return usersList;
     }
 
+    public Users selectUserByEmail(String email) throws SQLException {
+        String query = "SELECT * FROM userss WHERE email = ?";
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String nom = resultSet.getString("nom");
+                String prenom = resultSet.getString("prenom");
+                String email2 = resultSet.getString("email");
+                int age = resultSet.getInt("age");
+                String password = resultSet.getString("password");
 
+                return new Users(id, nom, prenom, email2, age,password ,2);
+            }
+        }
+        return null;
+    }
 
 
     private Users createUserFromResultSet(ResultSet resultSet) throws SQLException {
@@ -98,7 +112,7 @@ public class User_Dao {
 
     public Users updateUser(Users users) throws SQLException {
         String  query = "UPDATE userss set nom=? , prenom=? , email=? , age=? , Id_Role=?  WHERE id = ?";
-        try(java.sql.Connection connection = (java.sql.Connection) connectionManager.getConnection()){
+        try(Connection connection = connectionManager.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, users.getNom());
             preparedStatement.setString(2, users.getPrenom());
