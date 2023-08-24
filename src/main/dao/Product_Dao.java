@@ -26,7 +26,7 @@ public class Product_Dao {
         double prix = resultSet.getDouble("prix");
         String image = resultSet.getString("image");
 
-        return new Produit(id, nomProduit, qnt, prix, image, idCategor);
+        return new Produit(nomProduit, qnt, prix, image, idCategor);
     }
 
 
@@ -61,7 +61,7 @@ public class Product_Dao {
                 double prix = resultSet.getDouble("prix");
                 String image = resultSet.getString("image");
 
-                Produit produit = new Produit(id, nomProduit, qnt, prix, image, idCategor);
+                Produit produit = new Produit(nomProduit, qnt, prix, image, idCategor);
                 ProduitList.add(produit);
 
 
