@@ -13,7 +13,9 @@ public class Product_Dao {
 
     private DatabaseConnectionManager connectionManager;
 
-    public void Produit_Dao(DatabaseConnectionManager connectionManager) {
+
+    public Product_Dao(DatabaseConnectionManager connectionManager) throws ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
         this.connectionManager = connectionManager;
     }
 
@@ -77,8 +79,8 @@ public class Product_Dao {
 
     public void ajouterProduit(Produit produit) {
         String query = "INSERT INTO produit (nomProduit, prix, qnt, image ,idCategor ) VALUES (?, ?, ?, ?, ?)";
-        Connection connection=null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionManager.getConnection();  // Obtain the connection
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, produit.getNomProduit());
             preparedStatement.setInt(2, produit.getQnt());
             preparedStatement.setDouble(3, produit.getPrix());
@@ -90,10 +92,6 @@ public class Product_Dao {
             e.printStackTrace();
         }
     }
-
-
-
-
 
     public void supprimerProduit(int id) {
         String query = "DELETE FROM produit WHERE id = ?";

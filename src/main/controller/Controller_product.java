@@ -1,23 +1,32 @@
 package main.controller;
 
+import main.dao.DatabaseConnectionManager;
 import main.dao.Product_Dao;
 import main.entity.Produit;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.*;
 import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet("/produit")
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 10,      // 10MB
+        maxRequestSize = 1024 * 1024 * 50    // 50MB
+)
 public class  Controller_product extends HttpServlet {
     Product_Dao productDao;
 
-    public Controller_product() {
-        productDao = new Product_Dao();
+    public Controller_product() throws ClassNotFoundException {
+        DatabaseConnectionManager connectionManager = new DatabaseConnectionManager(); // Initialize the connection manager
+        productDao = new Product_Dao(connectionManager);
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response){
         try {
@@ -30,7 +39,7 @@ public class  Controller_product extends HttpServlet {
 
     }
 
-    public void doPost(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         switch (action){
             case "add":
@@ -51,8 +60,10 @@ public class  Controller_product extends HttpServlet {
                         os.write(buffer, 0, bytesRead);
                     }
                 }
+                System.out.println(imageName);
                 Produit produit = new Produit(nomProduit,qnt,prix,imageName,idCategor);
                 productDao.ajouterProduit(produit);
+                break;
             case "update":
                 String nomProduit2 = request.getParameter("nomProduit");
                 Double prix2 = Double.valueOf(request.getParameter("prix"));
@@ -73,9 +84,11 @@ public class  Controller_product extends HttpServlet {
                 }
                 Produit produit2 = new Produit(nomProduit2,qnt2,prix2,imageName2,idCategor2);
                 productDao.modifierProduit(produit2);
+                break;
             case "delete":
                 int id_delete = Integer.parseInt(request.getParameter("id"));
                 productDao.supprimerProduit(id_delete);
+                break;
         }
     }
 }
