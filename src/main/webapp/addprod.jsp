@@ -36,7 +36,7 @@
 
 
                 <div class="card-body">
-                    <form action="<%= request.getContextPath() %>/produit" method="post">
+                    <form action="<%= request.getContextPath() %>/produit" method="post" enctype="multipart/form-data">
                         <div class="form-row m-b-55">
                             <div class="name">Name</div>
                             <div class="value">
