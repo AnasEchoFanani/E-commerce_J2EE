@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet("/role")
 public class Controller_Role extends HttpServlet {
@@ -22,8 +23,13 @@ public class Controller_Role extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        request.getRequestDispatcher("roles.jsp").forward(request,response);
+        try {
+            List<Role> roles = adminDao.selectToutRole();
+            request.setAttribute("role",roles);
+            request.getRequestDispatcher("roles.jsp").forward(request,response);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void doPost(HttpServletRequest request,HttpServletResponse response){
