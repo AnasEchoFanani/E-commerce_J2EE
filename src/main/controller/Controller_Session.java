@@ -3,6 +3,7 @@ package main.controller;
 import main.dao.DatabaseConnectionManager;
 import main.dao.User_Dao;
 import main.entity.Users;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +32,7 @@ public class Controller_Session extends HttpServlet {
         try {
            Users users = userDao.selectUserByEmail(email);
             if (users != null) {
-                if (users.getPassword().equals(password)) {
+                if (BCrypt.checkpw(password, users.getPassword())) {
                     HttpSession session = request.getSession();
                     session.setAttribute("id", users.getId());
                     String redirectURL = request.getContextPath() + "/produit";

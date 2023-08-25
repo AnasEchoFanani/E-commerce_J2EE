@@ -28,6 +28,15 @@ public class Users {
         Id_Role = id_Role;
     }
 
+    public Users(String nom, String prenom, String email, int age, String password, int id_Role) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.age = age;
+        this.password = password;
+        Id_Role = id_Role;
+    }
+
     public int getId() {
         return Id;
     }

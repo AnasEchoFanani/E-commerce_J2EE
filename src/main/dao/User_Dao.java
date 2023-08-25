@@ -37,7 +37,7 @@ public class User_Dao {
 
 
     public void ajouterUseres(Users users) {
-        String query = "INSERT INTO userss (nom, prenom, email, age ,Id_Role ) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO userss (nom, prenom, email, age ,idRoles,password ) VALUES (?, ?, ?, ?, ?,?)";
         try (Connection connection = connectionManager.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, users.getNom());
@@ -45,6 +45,7 @@ public class User_Dao {
             preparedStatement.setString(3, users.getEmail());
             preparedStatement.setInt(4, users.getAge());
             preparedStatement.setInt(5, users.getId_Role());
+            preparedStatement.setString(6, users.getPassword());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

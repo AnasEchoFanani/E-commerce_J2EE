@@ -60,7 +60,6 @@ public class  Controller_product extends HttpServlet {
                         os.write(buffer, 0, bytesRead);
                     }
                 }
-                System.out.println(imageName);
                 Produit produit = new Produit(nomProduit,qnt,prix,imageName,idCategor);
                 productDao.ajouterProduit(produit);
                 break;

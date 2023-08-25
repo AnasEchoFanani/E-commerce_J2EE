@@ -15,10 +15,10 @@ public class Admin_Dao {
 
     private DatabaseConnectionManager connectionManager;
 
-    public Admin_Dao() {
-        this.connectionManager = new DatabaseConnectionManager();
+    public Admin_Dao(DatabaseConnectionManager connectionManager) throws ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        this.connectionManager = connectionManager;
     }
-
 
     // CRUD CATEGORIE
 
@@ -95,11 +95,9 @@ public class Admin_Dao {
 
     public Role AddRoles(Role role){
         String  query="INSERT INTO roles(nomRoles) VALUES (?)";
-        Connection connection=null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, role.getNomRoles());
-
-            System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
