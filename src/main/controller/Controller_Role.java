@@ -26,6 +26,8 @@ public class Controller_Role extends HttpServlet {
         String action = request.getParameter("action");
         switch (action){
             case "update":
+                String id = request.getParameter("id");
+                System.out.println(id);
                 request.getRequestDispatcher("roles.jsp").forward(request,response);
             case "afficher":
                 try {
