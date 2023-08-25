@@ -23,13 +23,20 @@ public class Controller_Role extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            List<Role> roles = adminDao.selectToutRole();
-            request.setAttribute("role",roles);
-            request.getRequestDispatcher("roles.jsp").forward(request,response);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        String action = request.getParameter("action");
+        switch (action){
+            case "update":
+                request.getRequestDispatcher("roles.jsp").forward(request,response);
+            case "afficher":
+                try {
+                    List<Role> roles = adminDao.selectToutRole();
+                    request.setAttribute("role",roles);
+                    request.getRequestDispatcher("roles.jsp").forward(request,response);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
         }
+
     }
 
     public void doPost(HttpServletRequest request,HttpServletResponse response){
