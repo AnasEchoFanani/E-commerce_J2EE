@@ -34,14 +34,13 @@
 						    	<th>Product</th>
 						      <th>Price</th>
 						      <th>Quantity</th>
-						      <th>Pic</th>
 						      <th>Action</th>
 						      <th>&nbsp;</th>
 						    </tr>
 						  </thead>
 						  <tbody>
 						    <tr class="alert" role="alert">
-						    	
+
 						    	<td>
 						    	image
 						    		<div class="img" style="background-image: url(images/product-1.png);"></div>
@@ -61,11 +60,7 @@
 				          </td>
 
 
-                          <td class="image">
-                          <div class="input-group">
-                          <input type="file" name="image"  >
-                          	</div>
-                          	</td>
+
 
 						      <td>
 						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">

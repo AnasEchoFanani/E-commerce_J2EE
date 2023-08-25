@@ -139,14 +139,15 @@ public class Admin_Dao {
 
     public List<Role> selectToutRole() throws SQLException {
         List<Role> RoleList = new ArrayList<>();
-        String query = "SELECT * from role";
-        Connection connection = null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+        String query = "SELECT * from roles";
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String nomRoles = resultSet.getString("nomRoles");
                 Role role = new Role(id, nomRoles);
+                RoleList.add(role);
             }
         } catch (SQLException e) {
             e.printStackTrace();
