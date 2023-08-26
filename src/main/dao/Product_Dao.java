@@ -52,7 +52,7 @@ public class Product_Dao {
     public List<Produit> selectToutProduit() throws SQLException {
         List<Produit> ProduitList = new ArrayList<>();
         String query = "SELECT * from produit";
-        Connection connection = null;
+        Connection connection = connectionManager.getConnection();
         try (PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {

@@ -32,7 +32,7 @@ public class  Controller_product extends HttpServlet {
         try {
             List<Produit> produits = productDao.selectToutProduit();
             request.setAttribute("produits",produits);
-            request.getRequestDispatcher("produit.jsp").forward(request,response);
+            request.getRequestDispatcher("user/index.jsp").forward(request,response);
         } catch (SQLException | ServletException | IOException e) {
             throw new RuntimeException(e);
         }
