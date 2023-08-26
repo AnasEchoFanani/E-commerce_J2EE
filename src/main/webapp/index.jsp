@@ -297,11 +297,10 @@ footer a {
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form action="Sign-in" method="POST">
 			<h1>Sign in</h1>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
+			<input type="email" placeholder="Email" name="email"/>
+			<input type="password" placeholder="Password" name="password"/>
 			<button type="submit">Sign In</button>
 		</form>
 	</div>

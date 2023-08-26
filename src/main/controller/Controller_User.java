@@ -25,7 +25,7 @@ public class Controller_User extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         switch (action){
-            case "register":
+            case "login":
                 request.getRequestDispatcher("index.jsp").forward(request,response);
                 break;
             case "change":

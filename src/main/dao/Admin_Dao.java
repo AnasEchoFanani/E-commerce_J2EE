@@ -24,10 +24,9 @@ public class Admin_Dao {
 
     public Category AddCategorie(Category category){
         String  query="INSERT INTO catego(nomCategori) VALUES (?)";
-        Connection connection=null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, category.getNomCategori());
-
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -52,8 +51,8 @@ public class Admin_Dao {
 
     public void supprimerCategorie(int id) {
         String query = "DELETE FROM catego WHERE id = ?";
-        Connection connection = null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -67,8 +66,8 @@ public class Admin_Dao {
     public List<Category> selectToutCategorie() throws SQLException {
         List<Category> CategorieList = new ArrayList<>();
         String query = "SELECT * from catego";
-        Connection connection = null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");

@@ -17,6 +17,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -29,16 +36,24 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/DeaD/OneDrive/Documents/GitHub/E-commerce_J2EE/src/main/webapp",
-    "project.structure.last.edited": "Project",
+    "last_opened_file_path": "C:/Users/lenovo/Desktop/Java Projet/E-commerce/lib/mysql-connector-java-8.0.28.jar",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.fileTypes"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\DeaD\OneDrive\Documents\GitHub\E-commerce_J2EE\src\main\webapp" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="main.controller" />
     </key>
   </component>
   <component name="RunManager">
@@ -57,7 +72,7 @@
       <option name="tomcatInfo">
         <TomcatInfo>
           <option name="name" value="Apache Tomcat/8.5.92" />
-          <option name="path" value="D:/download/apache-tomcat-8.5.92" />
+          <option name="path" value="$PROJECT_DIR$/../../apache-tomcat-8.5.92" />
           <option name="version" value="8.5.92.0" />
         </TomcatInfo>
       </option>
