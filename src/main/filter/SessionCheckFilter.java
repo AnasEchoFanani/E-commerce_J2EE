@@ -24,7 +24,7 @@ public class SessionCheckFilter implements Filter {
         HttpSession session = request.getSession(false);
 
         if (session == null || session.getAttribute("id") == null) {
-            String loginURI = request.getContextPath() + "/Sign-in";
+            String loginURI = "Sign-in";
             if (!request.getRequestURI().equals(loginURI)) {
                 response.sendRedirect(loginURI);
             }

@@ -1,4 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="main.entity.Produit" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,10 +17,10 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+  <link href="dashboard/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="dashboard/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link href="dashboard/assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -35,7 +37,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="active ">
-            <a href="./dashboard.html">
+            <a href="admin">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -47,20 +49,20 @@
             </a>
           </li>
           <li>
-            <a href="addProduct.jsp">
+            <a href="AddProduct">
               <i class="now-ui-icons ui-1_simple-add"></i>
               <p>Add Product</p>
             </a>
           </li>
           <li>
             <a href="addProduct.jsp">
-              <i class="now-ui-icons ui-1_simple-add"></i>
+              <i class="now-ui-icons shopping_tag-content"></i>
               <p>Add Role</p>
             </a>
           </li>
           <li>
             <a href="addProduct.jsp">
-              <i class="now-ui-icons ui-1_simple-add"></i>
+              <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Add Category</p>
             </a>
           </li>
@@ -154,16 +156,32 @@
                         <th>Price</th>
                         <th colspan="2">Action</th>
                       </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>chose</td>
-                      <td>10</td>
-                      <td>chose</td>
-                      <td>10$</td>
-                      <td><a href="#">Update</a></td>
-                      <td><a href="#">Delete</a></td>
-                    </tr>
                     </thead>
+                    <tbody class="text-center">
+                            <%
+                                List<Produit> produitList = (List<Produit>) request.getAttribute("produitList");
+                                if (produitList != null) {
+                                    for (Produit produit : produitList) {
+                            %>
+                            <tr>
+                                <td><%= produit.getId() %></td>
+                                <td><%= produit.getNomProduit() %></td>
+                                <td><%= produit.getQnt() %></td>
+                                <td><%= produit.getCategor() %></td>
+                                <td><%= produit.getPrix() %></td>
+                                <td><a class="btn btn-warning" href="#">Update</a></td>
+                                <td><form action="/karma/produit" method="post">
+                                        <input name="action" value="delete" hidden>
+                                        <input name="id" value="<%= produit.getId() %>" hidden>
+                                        <button class="btn btn-primary" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <%
+                                    }
+                                }
+                            %>
+                        </tbody>
                   </table>
                 </div>
               </div>
@@ -173,19 +191,19 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="dashboard/assets/js/core/jquery.min.js"></script>
+  <script src="dashboard/assets/js/core/popper.min.js"></script>
+  <script src="dashboard/assets/js/core/bootstrap.min.js"></script>
+  <script src="dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="dashboard/assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <script src="dashboard/assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
+  <script src="dashboard/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+  <script src="dashboard/assets/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js

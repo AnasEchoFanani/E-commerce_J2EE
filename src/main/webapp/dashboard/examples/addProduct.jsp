@@ -37,7 +37,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li >
-            <a href="./dashboard.html">
+            <a href="admin">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -49,7 +49,7 @@
             </a>
           </li>
           <li>
-            <a href="./addProduct.html">
+            <a href="AddProduct">
               <i class="now-ui-icons ui-1_simple-add"></i>
               <p>Add Product</p>
             </a>

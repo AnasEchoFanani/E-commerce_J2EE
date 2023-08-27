@@ -17,7 +17,7 @@ import java.io.*;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/produit")
+@WebServlet("/")
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, // 2MB
         maxFileSize = 1024 * 1024 * 10,      // 10MB
@@ -64,7 +64,7 @@ public class  Controller_product extends HttpServlet {
                 }
                 Produit produit = new Produit(nomProduit,qnt,prix,imageName,idCategor);
                 productDao.ajouterProduit(produit);
-                response.sendRedirect("/karma/AddProduct");
+                response.sendRedirect("/karma/admin");
                 break;
             case "update":
                 String nomProduit2 = request.getParameter("nomProduit");
@@ -89,7 +89,12 @@ public class  Controller_product extends HttpServlet {
                 break;
             case "delete":
                 int id_delete = Integer.parseInt(request.getParameter("id"));
-                productDao.supprimerProduit(id_delete);
+                try {
+                    productDao.supprimerProduit(id_delete);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                response.sendRedirect("/karma/admin");
                 break;
         }
     }

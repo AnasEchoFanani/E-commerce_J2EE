@@ -7,7 +7,27 @@ public class Produit {
     private Double prix;
     private String image;
     private  int idCategor;
+    private String Categor;
+
+    public Produit(int id,String nomProduit, int qnt, Double prix, String image, int idCategor, String categor) {
+        this.Id = id;
+        this.nomProduit = nomProduit;
+        this.qnt = qnt;
+        this.prix = prix;
+        this.image = image;
+        this.idCategor = idCategor;
+        Categor = categor;
+    }
+
     public Produit(String nomProduit, int qnt, Double prix, String image , int idCategor){
+        this.nomProduit = nomProduit;
+        this.prix = prix;
+        this.qnt = qnt;
+        this.image = image;
+        this.idCategor=idCategor;
+    }
+    public Produit(int id,String nomProduit, int qnt, Double prix, String image , int idCategor){
+        this.Id = id;
         this.nomProduit = nomProduit;
         this.prix = prix;
         this.qnt = qnt;
@@ -61,5 +81,13 @@ public class Produit {
 
     public void setidCategor(int iidCategord) {
         idCategor = idCategor;
+    }
+
+    public String getCategor() {
+        return Categor;
+    }
+
+    public void setCategor(String categor) {
+        Categor = categor;
     }
 }

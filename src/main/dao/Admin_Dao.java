@@ -48,6 +48,27 @@ public class Admin_Dao {
         return category ;
     }
 
+    public Category getCategoryById(int categoryId) {
+        Category category = null;
+        try (Connection connection = connectionManager.getConnection()) {
+            String query = "SELECT * from catego WHERE id=?";
+            PreparedStatement statement = connection.prepareStatement((query));
+            statement.setInt(1, categoryId);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                category = createCategoryFromResultSet(resultSet);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return category;
+    }
+
+    private Category createCategoryFromResultSet(ResultSet resultSet) throws SQLException {
+        int id = resultSet.getInt("id");
+        String nomCategori = resultSet.getString("nomCategori");
+        return new Category(id,nomCategori);
+    }
 
     public void supprimerCategorie(int id) {
         String query = "DELETE FROM catego WHERE id = ?";

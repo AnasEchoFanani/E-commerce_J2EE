@@ -63,7 +63,7 @@ public class Product_Dao {
                 double prix = resultSet.getDouble("prix");
                 String image = resultSet.getString("image");
 
-                Produit produit = new Produit(nomProduit, qnt, prix, image, idCategor);
+                Produit produit = new Produit(id,nomProduit, qnt, prix, image, idCategor);
                 ProduitList.add(produit);
 
 
@@ -93,9 +93,9 @@ public class Product_Dao {
         }
     }
 
-    public void supprimerProduit(int id) {
+    public void supprimerProduit(int id) throws SQLException {
         String query = "DELETE FROM produit WHERE id = ?";
-        Connection connection=null;
+        Connection connection = connectionManager.getConnection();
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
