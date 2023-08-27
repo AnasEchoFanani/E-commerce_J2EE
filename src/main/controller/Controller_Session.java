@@ -23,7 +23,7 @@ public class Controller_Session extends HttpServlet {
         userDao = new User_Dao(connectionManager);
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/index.jsp").forward(request,response);
+        request.getRequestDispatcher("sign.jsp").forward(request,response);
     }
 
     public void doPost(HttpServletRequest request,HttpServletResponse response){
@@ -40,12 +40,12 @@ public class Controller_Session extends HttpServlet {
                 } else {
                     String errorMessage = "Incorrect password.";
                     request.setAttribute("error", errorMessage);
-                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                    request.getRequestDispatcher("sign.jsp").forward(request, response);
                 }
             } else {
                 String errorMessage = "User with provided email not found.";
                 request.setAttribute("error", errorMessage);
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                request.getRequestDispatcher("sign.jsp").forward(request, response);
             }
         } catch (SQLException | IOException | ServletException e) {
             throw new RuntimeException(e);

@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="main.entity.Produit" %>
+
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -34,7 +38,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light main_box">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="user/index.jsp"><img src="user/img/logo.png" alt=""></a>
+					<a class="navbar-brand logo_h" href="produit"><img src="user/img/logo.png" alt=""></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon-bar"></span>
@@ -209,35 +213,45 @@
 					</div>
 				</div>
 				<div class="row">
-					<!-- single product -->
-					<div class="col-lg-3 col-md-6">
-						<div class="single-product">
-							<img class="img-fluid" src="user/img/product/p1.jpg" alt="">
-							<div class="product-details">
-								<h6>addidas New Hammer sole
-									for Sports person</h6>
-								<div class="price">
-									<h6>$150.00</h6>
-								</div>
-								<div class="prd-bottom">
+                         <%
+                             List<Produit> produits = (List<Produit>) request.getAttribute("produits");
+                             for (Produit produit : produits) {
+                         %>
+                             <div class="col-lg-3 col-md-6">
+                                 <div class="single-product">
+                                     <img class="img-fluid" src="images/<%= produit.getImage() %>" alt="">
+                                     <div class="product-details">
+                                         <h6><%= produit.getNomProduit() %></h6>
+                                         <div class="price">
+                                             <h6>$<%= produit.getPrix() %></h6>
+                                         </div>
+                                         <div class="prd-bottom">
+                                             <!--<form action="<%= request.getContextPath() %>/cart" method="post">
+                                                 <input type="hidden" name="id_produit" value="<%= produit.getId() %>">
+                                                 <input type="hidden" name="qte" value="1">
 
-									<a href="" class="social-info">
-										<span class="ti-bag"></span>
-										<p class="hover-text">add to bag</p>
-									</a>
-									<a href="" class="social-info">
-										<span class="lnr lnr-sync"></span>
-										<p class="hover-text">compare</p>
-									</a>
-									<a href="" class="social-info">
-										<span class="lnr lnr-move"></span>
-										<p class="hover-text">view more</p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                                                 <button type="submit" class="social-info">
+                                                     <span class="ti-bag"></span>
+                                                     <p class="hover-text">Add to Bag</p>
+                                                 </button>
+                                             </form>-->
+                                                <a href="" class="social-info">
+                                                    <span class="ti-bag"></span>
+                                                  <p class="hover-text">Add to Bag</p>
+                                                </a>
+                                             <a href="" class="social-info">
+                                                 <span class="lnr lnr-move"></span>
+                                                 <p class="hover-text">View More</p>
+                                             </a>
+                                         </div>
+
+                                     </div>
+                                 </div>
+                             </div>
+                         <%
+                             }
+                         %>
+                     </div>
 			</div>
 		</div>
 
@@ -338,7 +352,7 @@
 			</div>
 			<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
 				<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </p>
 			</div>

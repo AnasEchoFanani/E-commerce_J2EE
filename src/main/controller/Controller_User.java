@@ -26,7 +26,7 @@ public class Controller_User extends HttpServlet{
         String action = request.getParameter("action");
         switch (action){
             case "login":
-                request.getRequestDispatcher("index.jsp").forward(request,response);
+                request.getRequestDispatcher("sign.jsp").forward(request,response);
                 break;
             case "change":
                 Users user = userDao.getUserById(Integer.parseInt(request.getParameter("id")));

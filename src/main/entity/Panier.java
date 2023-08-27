@@ -5,8 +5,7 @@ public class Panier {
     private int id_Produit;
     private int qte;
 
-    public Panier(int id, int id_Produit, int qte) {
-        this.id = id;
+    public Panier(int id_Produit, int qte) {
         this.id_Produit = id_Produit;
         this.qte = qte;
     }

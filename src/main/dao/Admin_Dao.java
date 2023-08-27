@@ -73,6 +73,7 @@ public class Admin_Dao {
                 int id = resultSet.getInt("id");
                 String nomCategori = resultSet.getString("nomCategori");
                 Category category = new Category(id, nomCategori);
+                CategorieList.add(category);
             }
         } catch (SQLException e) {
             e.printStackTrace();

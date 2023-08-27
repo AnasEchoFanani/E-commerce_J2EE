@@ -82,8 +82,8 @@ public class Product_Dao {
         try (Connection connection = connectionManager.getConnection();  // Obtain the connection
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, produit.getNomProduit());
-            preparedStatement.setInt(2, produit.getQnt());
-            preparedStatement.setDouble(3, produit.getPrix());
+            preparedStatement.setDouble(2, produit.getPrix());
+            preparedStatement.setInt(3, produit.getQnt());
             preparedStatement.setString(4, produit.getImage());
             preparedStatement.setInt(5, produit.getidCategor());
             System.out.println(preparedStatement);

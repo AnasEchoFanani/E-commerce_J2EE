@@ -1,7 +1,9 @@
 package main.controller;
 
+import main.dao.Admin_Dao;
 import main.dao.DatabaseConnectionManager;
 import main.dao.Product_Dao;
+import main.entity.Category;
 import main.entity.Produit;
 
 import javax.servlet.ServletException;
@@ -62,6 +64,7 @@ public class  Controller_product extends HttpServlet {
                 }
                 Produit produit = new Produit(nomProduit,qnt,prix,imageName,idCategor);
                 productDao.ajouterProduit(produit);
+                response.sendRedirect("/karma/AddProduct");
                 break;
             case "update":
                 String nomProduit2 = request.getParameter("nomProduit");
